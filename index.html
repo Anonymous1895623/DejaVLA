@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: replace with your paper title -->
+  <title>Project Page — Anonymous Submission</title>
+  <meta name="description" content="Project page for an anonymous submission under double-blind review.">
+  <!-- Keeps the page out of search engines during review. Delete this line after acceptance. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='7' y='7' width='18' height='18' rx='3' fill='%231f3a5f'/%3E%3Cpath d='M11 3v4M16 3v4M21 3v4M11 25v4M16 25v4M21 25v4M3 11h4M3 16h4M3 21h4M25 11h4M25 16h4M25 21h4' stroke='%231f3a5f' stroke-width='2'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --surface: #ffffff;
+      --ink: #1b1f24;
+      --muted: #5b6470;
+      --faint: #8a929c;
+      --line: #e4e1da;
+      --accent: #1f3a5f;
+      --accent-soft: #e8eef5;
+      --grid: rgba(31, 58, 95, 0.07);
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12151a;
+        --surface: #181c22;
+        --ink: #e8e6e1;
+        --muted: #a3abb5;
+        --faint: #7a828c;
+        --line: #2a3038;
+        --accent: #9cb8dc;
+        --accent-soft: #1d2a3a;
+        --grid: rgba(156, 184, 220, 0.06);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Header ---------- */
+    header.hero {
+      position: relative;
+      text-align: center;
+      padding: 88px 0 56px;
+      border-bottom: 1px solid var(--line);
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-position: center top;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--bg));
+      pointer-events: none;
+    }
+    header.hero > .wrap { position: relative; z-index: 1; }
+    .venue {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 26px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 0 auto 22px;
+      max-width: 760px;
+      text-wrap: balance;
+    }
+    .authors {
+      font-size: 18px;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+    .affil {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0 0 32px;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+      transition: border-color .15s, transform .15s;
+    }
+    a.btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .btn svg { width: 16px; height: 16px; flex: none; }
+    .btn.pending { color: var(--faint); cursor: default; }
+    .btn.pending small {
+      font-size: 11px; font-family: var(--mono); letter-spacing: .04em;
+      text-transform: uppercase; color: var(--faint);
+      border-left: 1px solid var(--line); padding-left: 8px; margin-left: 2px;
+    }
+
+    /* ---------- Sections ---------- */
+    main section { padding: 52px 0 8px; }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 27px;
+      margin: 0 0 18px;
+      text-align: center;
+    }
+    p { margin: 0 0 16px; }
+    .abstract p { text-align: justify; hyphens: auto; color: var(--ink); }
+
+    .figure {
+      margin: 8px 0 0;
+      border: 1.5px dashed var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      aspect-ratio: 16 / 7;
+      display: grid; place-items: center;
+      color: var(--faint);
+      text-align: center;
+      padding: 24px;
+    }
+    .figure svg { width: 44px; height: 44px; margin-bottom: 10px; opacity: .7; }
+    .figure span { display: block; font-size: 14.5px; }
+    figcaption { font-size: 14.5px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 22px 18px;
+    }
+    .card h3 { font-size: 16.5px; margin: 0 0 6px; font-weight: 600; }
+    .card p { font-size: 15px; color: var(--muted); margin: 0; }
+    .card .tag {
+      display: inline-block; margin-top: 14px;
+      font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .icon svg { width: 18px; height: 18px; }
+
+    pre.bibtex {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-family: var(--mono);
+      font-size: 13.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--faint);
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      header.hero { padding: 64px 0 44px; }
+      .abstract p { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <!-- TODO: you can change this label, e.g. "DAC 2027" after acceptance -->
+    <div class="venue">Under double-blind review</div>
+
+    <!-- TODO: replace with your paper title -->
+    <h1>Your Paper Title Goes Here: A Short, Descriptive Subtitle</h1>
+
+    <!-- During review, keep these anonymous. After acceptance, list real authors and affiliations. -->
+    <p class="authors">Anonymous Authors</p>
+    <p class="affil">Paper under double-blind review</p>
+
+    <div class="links">
+      <!-- When a resource is ready, swap the <span class="btn pending"> for <a class="btn" href="..."> -->
+      <span class="btn pending" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+        Paper <small>Soon</small>
+      </span>
+      <span class="btn pending" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        Code <small>Soon</small>
+      </span>
+      <span class="btn pending" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+        Demo <small>Soon</small>
+      </span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="abstract" id="abstract">
+    <h2>Abstract</h2>
+    <!-- TODO: paste your abstract here (or leave this sentence during review) -->
+    <p>
+      This page accompanies a paper currently under double-blind review. Code, additional
+      experimental results, and interactive demonstrations will be released here upon publication.
+    </p>
+  </section>
+
+  <section id="overview">
+    <h2>Overview</h2>
+    <!-- TODO: replace the placeholder div with: <img src="overview.png" alt="..." style="width:100%;border-radius:12px"> -->
+    <div class="figure" role="img" aria-label="Overview figure placeholder">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg>
+        <span>Overview figure will be available upon publication</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <h2>Upcoming Resources</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Extended Results</h3>
+        <p>Full experimental results, including benchmarks and comparisons.</p>
+        <span class="tag">Upon publication</span>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
+        <h3>Demonstrations</h3>
+        <p>Interactive demos and walkthrough videos of the proposed method.</p>
+        <span class="tag">Upon publication</span>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Source Code</h3>
+        <p>Implementation and scripts to reproduce the reported experiments.</p>
+        <span class="tag">Upon publication</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- After acceptance: un-comment this block and fill in your BibTeX.
+  <section id="citation">
+    <h2>Citation</h2>
+    <pre class="bibtex">@inproceedings{yourkey2027,
+  title     = {Your Paper Title},
+  author    = {Last, First and Last, First},
+  booktitle = {Proceedings of the 64th ACM/IEEE Design Automation Conference (DAC)},
+  year      = {2027}
+}</pre>
+  </section>
+  -->
+
+</main>
+
+<footer>
+  <div class="wrap">
+    This page will be updated with code, experiments, and demonstrations upon publication.
+  </div>
+</footer>
+
+</body>
+</html>
